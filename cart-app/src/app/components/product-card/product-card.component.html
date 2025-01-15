@@ -1,0 +1,18 @@
+<div class="card h-100">
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">{{ product.name }}</h5>
+    <p class="card-text">{{ product.description }}</p>
+    <p class="card-text">{{ product.price | currency : "BRL" }}</p>
+    <div class="mt-auto d-flex justify-content-end">
+      <button type="button" class="btn btn-sm btn-primary w-100" (click)="addToCart(product)">
+        <i class="bi-cart-plus"></i> Carrinho
+      </button>
+    </div>
+    <!-- <div class="mt-auto d-flex flex-row justify-content-between">
+      <span class="card-text align-content-center">{{ product.price | currency : "BRL" }}</span>
+      <button type="button" (click)="addToCart(product)" class="btn btn-sm btn-primary">
+        <i class="bi-cart-plus"></i> Carrinho
+      </button>
+    </div> -->
+  </div>
+</div>

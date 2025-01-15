@@ -1,0 +1,41 @@
+<h2>Carrinho</h2>
+<div class="table-responsive">
+  <table class="table table-sm table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col" style="min-width: 180px;">Produto</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Quantidade</th>
+        <th scope="col">Total</th>
+        <th scope="col" class="text-center">-</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      @for (item of items; track $index) {
+      <tr>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.product.price | currency : "BRL" }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.product.price * item.quantity | currency : "BRL" }}</td>
+        <td class="text-center">
+          <button
+            type="button"
+            class="btn btn-sm btn-danger"
+            (click)="deleteCart(item.product.id)"
+          >
+            <i class="bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" class="text-end fw-bold">Total:</td>
+        <td colspan="1" class="text-start fw-bold">
+          {{ total | currency : "BRL" }}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
